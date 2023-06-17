@@ -6,6 +6,12 @@ getMovies() async {
   var url = Uri.parse('https://www.omdbapi.com/?s=top%20gun&apikey=e6c43dc6');
   var response = await http.get(url);
   var data = await jsonDecode(response.body);
+  return data;
+}
 
+getMovie(id) async {
+  var url = Uri.parse('https://www.omdbapi.com/?i=$id&apikey=e6c43dc6');
+  var response = await http.get(url);
+  var data = await jsonDecode(response.body);
   return data;
 }
